@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@plugin "tailwindcss-motion";
+
+@font-face {
+    font-family: "Pirulen";
+    src: url('/fonts/pirulen.ttf') format('truetype');
+}
+@font-face {
+    font-family: "GONJURING";
+    src: url('/fonts/THE GONjURING.ttf') format('truetype');
+}
+@font-face {
+    font-family: "Kingsmen";
+    src: url('/fonts/Kingsmen_D.otf') format('opentype');
+}
+
+@theme {
+    --font-Montserrat: "Montserrat", "sans-serif";
+    --font-Pirulen: "Pirulen", "sans-serif";
+    --font-GONJURING: "GONJURING", "sans-serif";
+    --font-Kingsmen: "Kingsmen", "sans-serif";
+}
