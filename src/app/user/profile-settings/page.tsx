@@ -47,8 +47,8 @@ function page() {
 
     let id = toast.loading("Updating . . . ");
     try {
-      const res = await axios.put(`/api/user?=update`, {
-        name, email
+      const res = await axios.put(`/api/user`, {
+        name, email, type: 'update'
       }, { withCredentials: true });
 
       //console.log(res);
@@ -86,8 +86,8 @@ function page() {
 
     let id = toast.loading("Changing . . . ");
     try {
-      const res = await axios.put(`/api/user?=password`, {
-        currentPassword, email, newPassword
+      const res = await axios.put(`/api/user`, {
+        currentPassword, email, newPassword, type: 'password'
       }, { withCredentials: true });
 
       //console.log(res);
