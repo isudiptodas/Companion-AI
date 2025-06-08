@@ -94,6 +94,15 @@ export async function POST(req: NextRequest) {
     else if (type === 'otp') {
         const { email, otp, name } = body;
 
+        const found = await User.findOne({ email });
+
+            if (found) {
+                return NextResponse.json({
+                    success: false,
+                    message: 'User already exists'
+                }, { status: 400 });
+            }
+
         try {
             const mail = process.env.COMPANION_EMAIL as string;
             const pass = process.env.COMPANION_PASSWORD as string;
