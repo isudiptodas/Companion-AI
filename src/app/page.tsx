@@ -81,7 +81,7 @@ function page() {
         <hr className={`w-[95%] md:w-[70%] lg:w-[60%] h-[1px] bg-zinc-400`}/>
         <p className={`text-xl sm:text-2xl md:text-4xl font-Kingsmen py-5 lg:py-6 mb-5 mt-3`}>All Doubts Cleared </p>
 
-        <div className={`w-[90%] sm:w-[80%] md:w-[60%] lg:w-[30%] flex flex-col justify-center items-center`}>
+        <div className={`w-[90%] sm:w-[80%] md:w-[60%] lg:w-[45%] flex flex-col justify-center items-center`}>
           <Accordion showDivider={true} variant="shadow" fullWidth={true}>
             {faq.map((list) => {
               return <AccordionItem className="mb-3 text-sm md:text-lg lg:text-xl" key={list.id} title={list.title}>
