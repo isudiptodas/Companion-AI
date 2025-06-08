@@ -33,16 +33,12 @@ export async function POST(req: NextRequest) {
             text: `Greetings from Companion AI. \n Your one-time password for password recovery is ${otp}.`,
         };
 
-        transporter.sendMail(mailOptions, (error) => {
-            if (error) {
-                console.log(error);
-            }
-        });
-
-        return NextResponse.json({
+       const info = await transporter.sendMail(mailOptions);
+            return NextResponse.json({
             success: true,
-            message: "OTP sent"
-        }, { status: 200 });
+            message: 'Email sent successfully',
+            info,
+            }, {status : 200});
     } catch (err) {
         console.log(err);
         return NextResponse.json({
