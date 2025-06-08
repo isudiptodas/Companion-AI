@@ -113,15 +113,12 @@ export async function POST(req: NextRequest) {
                 text: `Greetings from Companion AI. \n Hello ${name} your one-time password for account verification is ${otp}.`,
             };
 
-            transporter.sendMail(mailOptions, (error) => {
-                if (error) {
-                    console.log(error);
-                    return NextResponse.json({
-                success: false,
-                message: error
-            }, { status: 500 });
-                }
-            });
+            const info = await transporter.sendMail(mailOptions);
+            return NextResponse.json({
+            success: true,
+            message: 'Email sent successfully',
+            info,
+            }, {status : 200});
 
             return NextResponse.json({
                 success: true,
