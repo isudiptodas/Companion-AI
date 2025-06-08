@@ -32,8 +32,8 @@ function page() {
 
         try {
             id = toast.loading("Creating your account . . .");
-            const res = await axios.post(`/api/auth?=register`, {
-                name, password, email
+            const res = await axios.post(`/api/auth`, {
+                name, password, email, type: 'register'
             });
             console.log(res);
              if(res.status === 200){
@@ -79,8 +79,8 @@ function page() {
 
         try {
             id = toast.loading("Sending OTP . . .");
-            const res = await axios.post(`/api/auth?=otp`, {
-                name, email, otp
+            const res = await axios.post(`/api/auth`, {
+                name, email, otp, type:'otp'
             });
             console.log(res);
              if(res.status === 200){
