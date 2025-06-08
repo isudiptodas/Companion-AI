@@ -7,11 +7,11 @@ import nodemailer from 'nodemailer';
 
 export async function POST(req: NextRequest) {
     const body = await req.json();
-    const query = req.url.split('=')[1];
-
+    //const query = req.url.split('=')[1];
+    const { type } = body;
     await connectDb();
 
-    if (query === 'register') {
+    if (type === 'register') {
 
         const { name, email, password } = body;
         try {
@@ -46,7 +46,7 @@ export async function POST(req: NextRequest) {
         }
 
     }
-    else if (query === 'login') {
+    else if (type === 'login') {
         const { email, password } = body;
 
         try {
@@ -91,7 +91,7 @@ export async function POST(req: NextRequest) {
             }, { status: 500 });
         }
     }
-    else if (query === 'otp') {
+    else if (type === 'otp') {
         const { email, otp, name } = body;
 
         try {
@@ -122,20 +122,20 @@ export async function POST(req: NextRequest) {
             return NextResponse.json({
                 success: true,
                 message: "OTP sent"
-            }, {status: 200});
+            }, { status: 200 });
 
         } catch (err) {
             return NextResponse.json({
                 success: false,
                 message: "Something went wrong"
-            }, {status: 500});
+            }, { status: 500 });
         }
     }
     else {
-         return NextResponse.json({
-         success: false,
-         message: "Invalid query parameter",
-}, { status: 400 });
+        return NextResponse.json({
+            success: false,
+            message: "Invalid request parameter"
+        }, { status: 400 });
     }
 
 }
