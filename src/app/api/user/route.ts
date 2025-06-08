@@ -55,9 +55,10 @@ export async function POST(req: NextRequest) {
 
 export async function PUT(req: NextRequest) {
     const body = await req.json();
-    const query = req.url.split('=')[1];
+    //const query = req.url.split('=')[1];
+    const { type } = body;
 
-    if (query === 'update') {
+    if (type === 'update') {
         const { email, name } = body;
 
         try {
