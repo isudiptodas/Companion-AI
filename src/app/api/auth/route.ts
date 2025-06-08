@@ -131,5 +131,11 @@ export async function POST(req: NextRequest) {
             }, {status: 500});
         }
     }
+    else {
+         return NextResponse.json({
+         success: false,
+         message: "Invalid query parameter",
+}, { status: 400 });
+    }
 
 }
