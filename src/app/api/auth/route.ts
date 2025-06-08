@@ -116,6 +116,10 @@ export async function POST(req: NextRequest) {
             transporter.sendMail(mailOptions, (error) => {
                 if (error) {
                     console.log(error);
+                    return NextResponse.json({
+                success: false,
+                message: error
+            }, { status: 500 });
                 }
             });
 
