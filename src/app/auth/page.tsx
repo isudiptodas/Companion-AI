@@ -26,7 +26,7 @@ function page() {
 
         try {
             id = toast.loading("Logging you in . . .");
-            const res = await axios.post(`/api/auth?=login`, {
+            const res = await axios.post(`/api/auth`, {
                 password, email, type: 'login'
             });
             //console.log(res);
