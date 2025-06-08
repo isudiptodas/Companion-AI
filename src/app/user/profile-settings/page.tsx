@@ -132,7 +132,7 @@ function page() {
           <input onChange={(e) => setCurrentPassword(e.target.value)} type={visible ? "text" : "password"} className={`w-full rounded-md py-2 px-3 bg-gray-200 outline-none`} placeholder="Enter current password" />
           <span onClick={() => setVisible(!visible)} className={`absolute opacity-40 cursor-pointer right-5 top-[45%]`}>{visible ? <FaEye /> : <FaEyeSlash />}</span>
           <input onChange={(e) => setNewPassword(e.target.value)} type={visible ? "text" : "password"} className={`w-full rounded-md py-2 px-3 bg-gray-200 outline-none`} placeholder="Enter new password" />
-          <p className={`w-full py-2 text-center font-Montserrat bg-blue-500 text-white cursor-pointer hover:opacity-80 ease-in-out duration-200 rounded-md`}>Change Password</p>
+          <p className={`w-full py-2 text-center font-Montserrat bg-blue-500 text-white cursor-pointer hover:opacity-80 ease-in-out duration-200 rounded-md`} onClick={changePassword}>Change Password</p>
         </form>
       </div>
     </>
